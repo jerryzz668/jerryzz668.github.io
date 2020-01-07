@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>jerry</title>
+  <title>Jerry的博客</title>
   
-  
+  <subtitle>记录生活中的点点滴滴</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
@@ -10,7 +10,7 @@
   <id>http://yoursite.com/</id>
   
   <author>
-    <name>Jerry Zhang</name>
+    <name>整天梦游的小jerry</name>
     
   </author>
   
