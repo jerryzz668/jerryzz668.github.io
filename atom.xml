@@ -5,9 +5,9 @@
   <subtitle>记录生活中的点点滴滴</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
+  <link href="http://jerryzz668.github.io/"/>
   <updated>2020-01-04T13:58:28.819Z</updated>
-  <id>http://yoursite.com/</id>
+  <id>http://jerryzz668.github.io/</id>
   
   <author>
     <name>整天梦游的小jerry</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="http://yoursite.com/2020/01/04/hello-world/"/>
-    <id>http://yoursite.com/2020/01/04/hello-world/</id>
+    <link href="http://jerryzz668.github.io/2020/01/04/hello-world/"/>
+    <id>http://jerryzz668.github.io/2020/01/04/hello-world/</id>
     <published>2020-01-04T13:58:28.819Z</published>
     <updated>2020-01-04T13:58:28.819Z</updated>
     
@@ -35,8 +35,8 @@
   
   <entry>
     <title>手把手教你使用hexo搭建个人博客并部署到远端（Mac版)</title>
-    <link href="http://yoursite.com/2019/12/30/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/"/>
-    <id>http://yoursite.com/2019/12/30/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/</id>
+    <link href="http://jerryzz668.github.io/2019/12/30/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/"/>
+    <id>http://jerryzz668.github.io/2019/12/30/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/</id>
     <published>2019-12-30T15:46:20.000Z</published>
     <updated>2020-01-07T13:44:46.770Z</updated>
     
@@ -47,12 +47,12 @@
     </summary>
     
     
-      <category term="technology" scheme="http://yoursite.com/categories/technology/"/>
+      <category term="technology" scheme="http://jerryzz668.github.io/categories/technology/"/>
     
     
-      <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
+      <category term="hexo" scheme="http://jerryzz668.github.io/tags/hexo/"/>
     
-      <category term="blog" scheme="http://yoursite.com/tags/blog/"/>
+      <category term="blog" scheme="http://jerryzz668.github.io/tags/blog/"/>
     
   </entry>
   
