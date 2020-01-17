@@ -46,15 +46,15 @@
   };
 </script>
 
-  <meta name="description" content="Ubuntu16.04默认安装了第三方开源的驱动程序nouveau，安装nvidia显卡驱动首先需要禁用nouveau，不然会碰到冲突的问题，导致无法安装nvidia">
+  <meta name="description" content="Ubuntu16.04默认安装了第三方开源的驱动程序nouveau，安装nvidia显卡驱动首先需要禁用nouveau，不然会碰到冲突的问题，导致无法安装nvidia显卡驱动。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Ubuntu16.04安装NVIDIA显卡驱动">
 <meta property="og:url" content="http://jerryzz668.github.io/2020/01/17/Ubuntu16-04%E5%AE%89%E8%A3%85NVIDIA%E6%98%BE%E5%8D%A1%E9%A9%B1%E5%8A%A8/index.html">
 <meta property="og:site_name" content="Stay true to your mission">
-<meta property="og:description" content="Ubuntu16.04默认安装了第三方开源的驱动程序nouveau，安装nvidia显卡驱动首先需要禁用nouveau，不然会碰到冲突的问题，导致无法安装nvidia">
+<meta property="og:description" content="Ubuntu16.04默认安装了第三方开源的驱动程序nouveau，安装nvidia显卡驱动首先需要禁用nouveau，不然会碰到冲突的问题，导致无法安装nvidia显卡驱动。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-01-17T15:26:16.000Z">
-<meta property="article:modified_time" content="2020-01-17T16:00:48.916Z">
+<meta property="article:modified_time" content="2020-01-17T16:21:42.620Z">
 <meta property="article:author" content="整天梦游的小jerry">
 <meta property="article:tag" content="technology">
 <meta name="twitter:card" content="summary">
@@ -220,7 +220,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-01-18 00:00:48" itemprop="dateModified" datetime="2020-01-18T00:00:48+08:00">2020-01-18</time>
+                <time title="Modified: 2020-01-18 00:21:42" itemprop="dateModified" datetime="2020-01-18T00:21:42+08:00">2020-01-18</time>
               </span>
 
           
@@ -248,7 +248,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="Ubuntu16-04默认安装了第三方开源的驱动程序nouveau，安装nvidia显卡驱动首先需要禁用nouveau，不然会碰到冲突的问题，导致无法安装nvidia显卡驱动。"><a href="#Ubuntu16-04默认安装了第三方开源的驱动程序nouveau，安装nvidia显卡驱动首先需要禁用nouveau，不然会碰到冲突的问题，导致无法安装nvidia显卡驱动。" class="headerlink" title="Ubuntu16.04默认安装了第三方开源的驱动程序nouveau，安装nvidia显卡驱动首先需要禁用nouveau，不然会碰到冲突的问题，导致无法安装nvidia显卡驱动。"></a>Ubuntu16.04默认安装了第三方开源的驱动程序nouveau，安装nvidia显卡驱动首先需要禁用nouveau，不然会碰到冲突的问题，导致无法安装nvidia<a id="more"></a>显卡驱动。</h2><h3 id="话不多说-直接进入正题-第一步禁用nouveau"><a href="#话不多说-直接进入正题-第一步禁用nouveau" class="headerlink" title="话不多说, 直接进入正题, 第一步禁用nouveau"></a>话不多说, 直接进入正题, 第一步禁用nouveau</h3><ol>
+        <p>Ubuntu16.04默认安装了第三方开源的驱动程序nouveau，安装nvidia显卡驱动首先需要禁用nouveau，不然会碰到冲突的问题，导致无法安装nvidia显卡驱动。<a id="more"></a></p>
+<h4 id="第一步-禁用nouveau"><a href="#第一步-禁用nouveau" class="headerlink" title="第一步, 禁用nouveau"></a>第一步, 禁用nouveau</h4><ol>
 <li>编辑文件blacklist.conf <code>sudo vim /etc/modprobe.d/blacklist.conf</code></li>
 <li>若未安装vim, 则<code>sudo apt-get install vim</code>安装</li>
 <li>在文件最后部分插入以下两行内容<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">blacklist nouveau</span><br><span class="line">options nouveau modeset=0</span><br></pre></td></tr></table></figure></li>
@@ -257,7 +258,7 @@
 <li>验证nouveau是否已禁用<code>lsmod | grep nouveau</code><br>没有信息显示，说明nouveau已被禁用，接下来可以安装nvidia的显卡驱动。</li>
 </ol>
 <hr>
-<h3 id="第二步-在英伟达的官网上查找你自己电脑的显卡型号然后下载相应的驱动。网址：NVIDIA官网"><a href="#第二步-在英伟达的官网上查找你自己电脑的显卡型号然后下载相应的驱动。网址：NVIDIA官网" class="headerlink" title="第二步, 在英伟达的官网上查找你自己电脑的显卡型号然后下载相应的驱动。网址：NVIDIA官网"></a>第二步, 在英伟达的官网上查找你自己电脑的显卡型号然后下载相应的驱动。网址：<a href="http://www.nvidia.cn/page/home.html" target="_blank" rel="noopener">NVIDIA官网</a></h3><p>我下载的版本：NVIDIA-Linux-x86_64-430.50.run（注意不同的版本最后安装执行的具体选项不同）</p>
+<h4 id="第二步-在英伟达的官网上查找你自己电脑的显卡型号然后下载相应的驱动。网址：NVIDIA官网"><a href="#第二步-在英伟达的官网上查找你自己电脑的显卡型号然后下载相应的驱动。网址：NVIDIA官网" class="headerlink" title="第二步, 在英伟达的官网上查找你自己电脑的显卡型号然后下载相应的驱动。网址：NVIDIA官网"></a>第二步, 在英伟达的官网上查找你自己电脑的显卡型号然后下载相应的驱动。网址：<a href="http://www.nvidia.cn/page/home.html" target="_blank" rel="noopener">NVIDIA官网</a></h4><p>我下载的版本：NVIDIA-Linux-x86_64-430.50.run（注意不同的版本最后安装执行的具体选项不同）</p>
 <ol>
 <li>下载后的run文件拷贝至home目录下</li>
 <li>在ubuntu下按ctrl+alt+f1进入命令行界面，关闭图形界面，不执行会出错<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo service lightdm stop</span><br></pre></td></tr></table></figure></li>
@@ -269,13 +270,13 @@
 </ol>
 <p>Q:The distribution-provided pre-install script failed! Are you sure you want to continue? 选择 yes 继续。<br>Q:Would you like to register the kernel module souces with DKMS? This will allow DKMS to automatically build a new module, if you install a different kernel later?  选择 No 继续。<br>Q：xxx？ 选择install without signing<br>Q:Nvidia’s 32-bit compatibility libraries? 选择 No 继续。<br>Q:Would you like to run the nvidia-xconfigutility to automatically update your x configuration so that the NVIDIA x driver will be used when you restart x? Any pre-existing x confile will be backed up.  选择 Yes  继续</p>
 <hr>
-<h3 id="第三步"><a href="#第三步" class="headerlink" title="第三步"></a>第三步</h3><ol>
+<h4 id="第三步"><a href="#第三步" class="headerlink" title="第三步"></a>第三步</h4><ol>
 <li>挂载NVIDIA驱动<code>modprobe nvidia</code></li>
 <li>查看驱动是否安装成功：<code>nvidia-smi</code></li>
 <li>恢复图形界面 <code>sudo service lightdm start</code></li>
 </ol>
 <hr>
-<h2 id="至此大功告成"><a href="#至此大功告成" class="headerlink" title="至此大功告成"></a>至此大功告成</h2>
+<h3 id="至此大功告成"><a href="#至此大功告成" class="headerlink" title="至此大功告成"></a>至此大功告成</h3>
     </div>
 
     
@@ -404,7 +405,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Ubuntu16-04默认安装了第三方开源的驱动程序nouveau，安装nvidia显卡驱动首先需要禁用nouveau，不然会碰到冲突的问题，导致无法安装nvidia显卡驱动。"><span class="nav-number">1.</span> <span class="nav-text">Ubuntu16.04默认安装了第三方开源的驱动程序nouveau，安装nvidia显卡驱动首先需要禁用nouveau，不然会碰到冲突的问题，导致无法安装nvidia显卡驱动。</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#话不多说-直接进入正题-第一步禁用nouveau"><span class="nav-number">1.1.</span> <span class="nav-text">话不多说, 直接进入正题, 第一步禁用nouveau</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第二步-在英伟达的官网上查找你自己电脑的显卡型号然后下载相应的驱动。网址：NVIDIA官网"><span class="nav-number">1.2.</span> <span class="nav-text">第二步, 在英伟达的官网上查找你自己电脑的显卡型号然后下载相应的驱动。网址：NVIDIA官网</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第三步"><span class="nav-number">1.3.</span> <span class="nav-text">第三步</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#至此大功告成"><span class="nav-number">2.</span> <span class="nav-text">至此大功告成</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#第一步-禁用nouveau"><span class="nav-number">1.</span> <span class="nav-text">第一步, 禁用nouveau</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第二步-在英伟达的官网上查找你自己电脑的显卡型号然后下载相应的驱动。网址：NVIDIA官网"><span class="nav-number">2.</span> <span class="nav-text">第二步, 在英伟达的官网上查找你自己电脑的显卡型号然后下载相应的驱动。网址：NVIDIA官网</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第三步"><span class="nav-number">3.</span> <span class="nav-text">第三步</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#至此大功告成"><span class="nav-number"></span> <span class="nav-text">至此大功告成</span></a></div>
       </div>
       <!--/noindex-->
 
