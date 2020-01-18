@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jerryzz668.github.io/"/>
-  <updated>2020-01-17T16:21:42.620Z</updated>
+  <updated>2020-01-18T16:48:56.804Z</updated>
   <id>http://jerryzz668.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://jerryzz668.github.io/2020/01/17/Ubuntu16-04%E5%AE%89%E8%A3%85NVIDIA%E6%98%BE%E5%8D%A1%E9%A9%B1%E5%8A%A8/"/>
     <id>http://jerryzz668.github.io/2020/01/17/Ubuntu16-04%E5%AE%89%E8%A3%85NVIDIA%E6%98%BE%E5%8D%A1%E9%A9%B1%E5%8A%A8/</id>
     <published>2020-01-17T15:26:16.000Z</published>
-    <updated>2020-01-17T16:21:42.620Z</updated>
+    <updated>2020-01-18T16:48:56.804Z</updated>
     
     <summary type="html">
     
@@ -30,8 +30,12 @@
     </summary>
     
     
+      <category term="technology" scheme="http://jerryzz668.github.io/categories/technology/"/>
     
-      <category term="technology" scheme="http://jerryzz668.github.io/tags/technology/"/>
+    
+      <category term="Ubuntu" scheme="http://jerryzz668.github.io/tags/Ubuntu/"/>
+    
+      <category term="Nvidia" scheme="http://jerryzz668.github.io/tags/Nvidia/"/>
     
   </entry>
   
