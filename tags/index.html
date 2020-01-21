@@ -54,7 +54,7 @@
 <meta property="og:description" content="Until this moment, I have left at least a kilo of tears">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-01-07T13:45:21.000Z">
-<meta property="article:modified_time" content="2020-01-07T13:45:20.000Z">
+<meta property="article:modified_time" content="2020-01-21T08:56:17.762Z">
 <meta property="article:author" content="整天梦游的小jerry">
 <meta name="twitter:card" content="summary">
 
@@ -208,7 +208,15 @@
       
       
       <div class="post-body">
-          
+          <div class="tag-cloud">
+            <div class="tag-cloud-title">
+              6 tags in total
+            </div>
+            <div class="tag-cloud-tags">
+              <a href="/tags/Nvidia/" style="font-size: 12px; color: #ccc">Nvidia</a> <a href="/tags/Ubuntu/" style="font-size: 12px; color: #ccc">Ubuntu</a> <a href="/tags/blog/" style="font-size: 12px; color: #ccc">blog</a> <a href="/tags/cuda/" style="font-size: 12px; color: #ccc">cuda</a> <a href="/tags/cudnn/" style="font-size: 12px; color: #ccc">cudnn</a> <a href="/tags/hexo/" style="font-size: 12px; color: #ccc">hexo</a>
+            </div>
+          </div>
+        
       </div>
       
       
@@ -224,7 +232,7 @@
 
           </div>
           
-    <div class="comments" id="gitalk-container"></div>
+  <div id="gitalk-container"></div>
 
 
 <script>
@@ -292,12 +300,16 @@
         </a>
       </div>
       <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
         <span class="site-state-item-count">2</span>
-        <span class="site-state-item-name">categories</span>
+        <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">5</span>
-        <span class="site-state-item-name">tags</span>
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
 </div>
@@ -444,25 +456,6 @@ if (document.querySelectorAll('pre.mermaid').length) {
 
   
 
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
-
-<script>
-NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
-  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
-    var gitalk = new Gitalk({
-      clientID: 'cf918d5c6432b31c860d',
-      clientSecret: '3a7d7548e44df38cbe484a254e29b9b9b2215728',
-      repo: 'blog-comments',
-      owner: 'jerryzz668',
-      admin: ['jerryzz668'],
-      id: 'f47af1d1eda4d807b02bba32be15120b',
-        language: 'zh-CN',
-      distractionFreeMode: true
-    });
-    gitalk.render('gitalk-container');
-  }, window.Gitalk);
-});
-</script>
 
 /*<!-- 页面点击小红心 -->
 <script type="text/javascript" src="/js/src/clicklove.js"></script>

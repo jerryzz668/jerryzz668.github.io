@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jerryzz668.github.io/"/>
-  <updated>2020-01-21T05:06:04.689Z</updated>
+  <updated>2020-01-21T09:01:36.276Z</updated>
   <id>http://jerryzz668.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://jerryzz668.github.io/2020/01/21/Ubuntu16.04%E4%B8%8B%E5%AE%89%E8%A3%85cuda%E5%92%8Ccudnn(%E4%BA%B2%E6%B5%8B%E6%9C%89%E6%95%88)/"/>
     <id>http://jerryzz668.github.io/2020/01/21/Ubuntu16.04%E4%B8%8B%E5%AE%89%E8%A3%85cuda%E5%92%8Ccudnn(%E4%BA%B2%E6%B5%8B%E6%9C%89%E6%95%88)/</id>
     <published>2020-01-21T04:52:46.000Z</published>
-    <updated>2020-01-21T05:06:04.689Z</updated>
+    <updated>2020-01-21T09:01:36.276Z</updated>
     
     <summary type="html">
     
@@ -33,14 +33,16 @@
       <category term="system" scheme="http://jerryzz668.github.io/categories/system/"/>
     
     
-      <category term="---cuda ---cudnn" scheme="http://jerryzz668.github.io/tags/cuda-cudnn/"/>
+      <category term="cuda" scheme="http://jerryzz668.github.io/tags/cuda/"/>
+    
+      <category term="cudnn" scheme="http://jerryzz668.github.io/tags/cudnn/"/>
     
   </entry>
   
   <entry>
     <title>Ubuntu16.04下安装NVIDIA显卡驱动</title>
-    <link href="http://jerryzz668.github.io/2020/01/17/Ubuntu16.04%E5%AE%89%E8%A3%85NVIDIA%E6%98%BE%E5%8D%A1%E9%A9%B1%E5%8A%A8/"/>
-    <id>http://jerryzz668.github.io/2020/01/17/Ubuntu16.04%E5%AE%89%E8%A3%85NVIDIA%E6%98%BE%E5%8D%A1%E9%A9%B1%E5%8A%A8/</id>
+    <link href="http://jerryzz668.github.io/2020/01/17/Ubuntu16.04%E4%B8%8B%E5%AE%89%E8%A3%85NVIDIA%E6%98%BE%E5%8D%A1%E9%A9%B1%E5%8A%A8/"/>
+    <id>http://jerryzz668.github.io/2020/01/17/Ubuntu16.04%E4%B8%8B%E5%AE%89%E8%A3%85NVIDIA%E6%98%BE%E5%8D%A1%E9%A9%B1%E5%8A%A8/</id>
     <published>2020-01-17T15:26:16.000Z</published>
     <updated>2020-01-21T05:08:02.925Z</updated>
     
