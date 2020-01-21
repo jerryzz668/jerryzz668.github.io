@@ -1,6 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>日常碰到的小bug(不定期更新)</title>
+    <url>/2020/01/21/%E6%97%A5%E5%B8%B8%E7%A2%B0%E5%88%B0%E7%9A%84%E5%B0%8Fbug(%E4%B8%8D%E5%AE%9A%E6%9C%9F%E6%9B%B4%E6%96%B0)/</url>
+    <content><![CDATA[<p>作为一个日常踩坑的程序员，避免不了经常性的遇到同样的小bug，不定期记录自己的踩坑时刻。</p>
+<a id="more"></a>
+<h3 id="解决error-mounting-dev-sdb1-at-media-command-line-exfat-问题"><a href="#解决error-mounting-dev-sdb1-at-media-command-line-exfat-问题" class="headerlink" title="解决error mounting dev sdb1 at media command-line exfat 问题"></a>解决error mounting dev sdb1 at media command-line exfat 问题</h3><p>在Ubuntu16.04插入U盘，无法识别，并弹出如下提示框：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">error mounting ... dev sdb1 at ... media <span class="built_in">command</span>-line ... exfat</span><br></pre></td></tr></table></figure>
+<p>解决办法：<br>安装如下包：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get install exfat-fuse exfat-utils</span><br></pre></td></tr></table></figure>
+<p>一般运行完上述命令，拔出U盘重新插入，就可以了</p>
+]]></content>
+      <categories>
+        <category>technology</category>
+      </categories>
+      <tags>
+        <tag>bug</tag>
+        <tag>日常</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Ubuntu16.04下安装cuda和cudnn(亲测有效)</title>
     <url>/2020/01/21/Ubuntu16.04%E4%B8%8B%E5%AE%89%E8%A3%85cuda%E5%92%8Ccudnn(%E4%BA%B2%E6%B5%8B%E6%9C%89%E6%95%88)/</url>
     <content><![CDATA[<p>上一篇博客讲述了Ubuntu16.04下如何安装显卡驱动，这篇继续讲述如何安装cuda和cudnn。首先安装之前首先要确认你需要安装的cuda和cudnn版本<a id="more"></a></p>
