@@ -1,8 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Ubuntu16.04安装NVIDIA显卡驱动</title>
-    <url>/2020/01/17/Ubuntu16-04%E5%AE%89%E8%A3%85NVIDIA%E6%98%BE%E5%8D%A1%E9%A9%B1%E5%8A%A8/</url>
+    <title>Ubuntu16.04下安装cuda和cudnn(亲测有效)</title>
+    <url>/2020/01/21/Ubuntu16.04%E4%B8%8B%E5%AE%89%E8%A3%85cuda%E5%92%8Ccudnn(%E4%BA%B2%E6%B5%8B%E6%9C%89%E6%95%88)/</url>
+    <content><![CDATA[<p>上一篇博客讲述了Ubuntu16.04下如何安装显卡驱动，这篇继续讲述如何安装cuda和cudnn。首先安装之前首先要确认你需要安装的cuda和cudnn版本<a id="more"></a></p>
+<h3 id="cuda的安装"><a href="#cuda的安装" class="headerlink" title="cuda的安装"></a>cuda的安装</h3><p>1.下载<a href="https://developer.nvidia.com/cuda-toolkit-archive" target="_blank" rel="noopener">cuda安装文件</a>。按照你的系统配置选择安装包，例如我安装的是cuda9.0，那么选择Linux，x86_64，Ubuntu，16.04，最后一个Installer type 选择runfile(local)或者deb(local)都可以，我选择的是deb(local)，下面会分别给出相应的安装过程。<br>2.1 deb(local)安装<br>进入到deb(local)位置，我的是放在Download路径下，在此路径下打开终端，输入</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo dpkg -I cuda-repo-ubuntu1604-9-0-local_9.0.176-1_amd64.deb</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install -y cuda</span><br></pre></td></tr></table></figure>
+<p>2.2 安装完毕之后，设置环境变量。打开bashrc文件，将cuda路径写入</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo vim ~/.bashrc</span><br></pre></td></tr></table></figure>
+<p>按i进行编辑，把以下3个路径粘贴到bashrc文件中</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">export</span> LD_LIBRARY_PATH=<span class="variable">$LD_LIBRARY_PATH</span>:/usr/<span class="built_in">local</span>/cuda-9.0/lib64</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:/usr/<span class="built_in">local</span>/cuda-9.0/bin</span><br><span class="line"><span class="built_in">export</span> CUDA_HOME=<span class="variable">$CUDA_HOME</span>:/usr/<span class="built_in">local</span>/cuda-9.0</span><br></pre></td></tr></table></figure>
+<p>然后友情提示：输入<code>:wq</code>,回车即可完成添加路径。<br>终端运行：<code>source ~/.bashrc</code><br>查看cuda 版本<br>输入<code>nvcc –-version</code><br>3.1 runfile(local)安装<br>进入到runfile(local)位置，我的是放在Download路径下，在此路径下打开终端，输入</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo sh cuda_9.0.176_384.81_linux.run</span><br></pre></td></tr></table></figure>
+<p>然后找个按住回车键不撒手，直到服务条款显示到100%，然后按照下面进行选择：accept，n(不要安装driver)，y，y，y，<br>安装完成后，设置环境变量，方法同deb(local)安装</p>
+<h3 id="cudnn的安装"><a href="#cudnn的安装" class="headerlink" title="cudnn的安装"></a>cudnn的安装</h3><p>1.下载对应的<a href="https://developer.nvidia.com/rdp/cudnn-archive" target="_blank" rel="noopener">安装文件</a><br>2.安装cudnn<br>解压刚下载的文件，出现cuda文件夹，当前路径(我的路径为Download)打开终端</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo cp cuda/include/cudnn.h /usr/<span class="built_in">local</span>/cuda/include/ </span><br><span class="line">sudo cp cuda/lib64/libcudnn* /usr/<span class="built_in">local</span>/cuda/lib64/</span><br><span class="line">sudo chmod a+r /usr/<span class="built_in">local</span>/cuda/include/cudnn.h</span><br><span class="line">sudo chmod a+r /usr/<span class="built_in">local</span>/cuda/lib64/libcudnn*</span><br></pre></td></tr></table></figure>
+<p>3.查看cudnn版本<br>终端输入</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cat /usr/<span class="built_in">local</span>/cuda/include/cudnn.h | grep CUDNN_MAJOR -A 2</span><br></pre></td></tr></table></figure>
+<p>看到红白相间的版本信息，即安装成功。</p>
+<h3 id="安装完成，快去感受一下你的算力吧"><a href="#安装完成，快去感受一下你的算力吧" class="headerlink" title="安装完成，快去感受一下你的算力吧"></a>安装完成，快去感受一下你的算力吧</h3>]]></content>
+      <categories>
+        <category>system</category>
+      </categories>
+      <tags>
+        <tag>---cuda ---cudnn</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Ubuntu16.04下安装NVIDIA显卡驱动</title>
+    <url>/2020/01/17/Ubuntu16.04%E5%AE%89%E8%A3%85NVIDIA%E6%98%BE%E5%8D%A1%E9%A9%B1%E5%8A%A8/</url>
     <content><![CDATA[<p>Ubuntu16.04默认安装了第三方开源的驱动程序nouveau，安装nvidia显卡驱动首先需要禁用nouveau，不然会碰到冲突的问题，导致无法安装nvidia显卡驱动。<a id="more"></a></p>
 <h4 id="第一步-禁用nouveau"><a href="#第一步-禁用nouveau" class="headerlink" title="第一步, 禁用nouveau"></a>第一步, 禁用nouveau</h4><ol>
 <li>编辑文件blacklist.conf <code>sudo vim /etc/modprobe.d/blacklist.conf</code></li>
@@ -33,7 +59,7 @@
 <hr>
 <h3 id="至此大功告成"><a href="#至此大功告成" class="headerlink" title="至此大功告成"></a>至此大功告成</h3>]]></content>
       <categories>
-        <category>technology</category>
+        <category>system</category>
       </categories>
       <tags>
         <tag>Ubuntu</tag>
