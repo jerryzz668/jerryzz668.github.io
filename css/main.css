@@ -1237,7 +1237,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #06ab47;
+  background: #d2fff1;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2706,105 +2706,5 @@ ul.breadcrumb li + li:last-child {
   }
 }
 body {
-  background: url("https://s1.ax1x.com/2018/12/20/FrwSoR.jpg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  background-attachment: fixed;
-}
-.site-meta {
-  background: url("https://s2.ax1x.com/2020/01/24/1Zr1PO.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-.brand {
-  color: #fbda41;
-}
-.site-subtitle {
-  color: #fbda41;
-}
-.header-inner {
-  background: #bc0100;
-  background: linear-gradient(0deg, #bc0100 20%, #9b1d22 80%);
-}
-.menu-item a {
-  color: #fbda41;
-}
-.menu-item-active a {
-  color: #555;
-}
-.footer,
-.footer a,
-.footer .with-love {
-  color: #31ff00;
-}
-article .post-header {
-  background: url("https://s2.ax1x.com/2020/01/24/1ZrmrR.jpg");
-  background-repeat: no-repeat;
-  background-position: right;
-  background-size: contain;
-}
-article .post-copyright {
-  background: url("https://s1.ax1x.com/2018/12/20/FrD60g.png");
-  background-repeat: no-repeat;
-  background-position: right bottom;
-  background-size: contain;
-}
-.sidebar-inner {
-  background: url("https://s2.ax1x.com/2020/01/24/1Zr5JU.jpg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  color: #fbda41;
-}
-.sidebar-inner .site-overview-wrap .site-overview,
-.sidebar-inner .site-overview-wrap .site-overview .site-author-name,
-.sidebar a,
-.sidebar span.exturl,
-.site-state-item-name,
-.site-description {
-  color: #fbda41;
-}
-.sidebar-nav .sidebar-nav-active {
-  color: #fcc307;
-  border-bottom-color: #fcc307;
-}
-.sidebar-nav li {
-  color: #fbda41;
-  border-bottom-color: #fbda41;
-}
-.links-of-blogroll-list {
-  text-shadow: #f00 0 1px 0;
-}
-.post-toc ol a {
-  color: #fbda41;
-}
-.post {
-  margin-top: 60px;
-  margin-bottom: 60px;
-  padding: 25px;
-  -webkit-box-shadow: 0 0 5px rgba(202,203,203,0.5);
-  -moz-box-shadow: 0 0 5px rgba(202,203,204,0.5);
-}
-* {
-  cursor: url("http://om8u46rmb.bkt.clouddn.com/sword2.ico"), auto !important;
-}
-:active {
-  cursor: url("http://om8u46rmb.bkt.clouddn.com/sword1.ico"), auto !important;
-}
-code {
-  color: #ff7600;
-  background: #fbf7f8;
-  margin: 2px;
-}
-.highlight,
-pre {
-  margin: 5px 0;
-  padding: 5px;
-  border-radius: 3px;
-}
-.highlight,
-code,
-pre {
-  border: 1px solid #d6d6d6;
+  color: #000;
 }
