@@ -1237,7 +1237,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #ffdddf;
+  background: #ffc6ee;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2716,4 +2716,22 @@ body {
 }
 .site-subtitle {
   color: #fff;
+}
+.header-inner {
+  background: #000;
+}
+article .post-header {
+  background: url("https://s2.ax1x.com/2020/01/24/1ZrmrR.jpg");
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: contain;
+}
+article .post-copyright {
+  background: url("https://s1.ax1x.com/2018/12/20/FrD60g.png");
+  background-repeat: no-repeat;
+  background-position: right bottom;
+  background-size: contain;
+}
+.sidebar-inner {
+  background: #000;
 }
