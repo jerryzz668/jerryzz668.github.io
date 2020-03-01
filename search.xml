@@ -1,6 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>小白也能看懂的BP反向传播</title>
+    <url>/jerryzz668.github.io/2020/03/01/%E5%B0%8F%E7%99%BD%E4%B9%9F%E8%83%BD%E7%9C%8B%E6%87%82%E7%9A%84BP%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD/</url>
+    <content><![CDATA[<h4 id="BP过程中，更新公式长什么样？"><a href="#BP过程中，更新公式长什么样？" class="headerlink" title="BP过程中，更新公式长什么样？"></a>BP过程中，更新公式长什么样？</h4><p>众所周知，BP过程中通过权值的不断更新，使得神经网络的输出向groundtruth靠近。</p>
+<a id="more"></a>
+<p>开门见山，直接看图，这部分是为==后面==做铺垫，很简单昂~</p>
+<p><img src="https://s2.ax1x.com/2020/03/01/3g4ZNR.png" alt="1"></p>
+<p>我们随机给输入a，b添加一个随机值，然后用步长step来控制增加速度，看python代码：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">import random</span><br><span class="line"></span><br><span class="line">def multiply(a, b):</span><br><span class="line">    <span class="built_in">return</span> a * b</span><br><span class="line"></span><br><span class="line">def func():</span><br><span class="line">    a = 5</span><br><span class="line">    b = 6</span><br><span class="line">    step = 0.01</span><br><span class="line">    a = a + step * (random.random())</span><br><span class="line">    b = b + step * (random.random())</span><br><span class="line">    <span class="built_in">print</span>(multiply(a, b))</span><br><span class="line"></span><br><span class="line">func()</span><br></pre></td></tr></table></figure>
+<p>运行程序，输出30.023996846498836，比30大，但是如果继续测试，会出现问题，速看如下代码：</p>
+<figure class="highlight autoit"><table><tr><td class="code"><pre><span class="line">def <span class="function"><span class="keyword">func</span><span class="params">()</span>:</span></span><br><span class="line">    a = <span class="number">-5</span></span><br><span class="line">    b = <span class="number">-6</span></span><br><span class="line">    <span class="keyword">step</span> = <span class="number">0.01</span></span><br><span class="line">    a = a + <span class="keyword">step</span> * (<span class="built_in">random</span>.<span class="built_in">random</span>())</span><br><span class="line">    b = b + <span class="keyword">step</span> * (<span class="built_in">random</span>.<span class="built_in">random</span>())</span><br><span class="line">    print(multiply(a, b))</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
+<p>运行程序，输出29.982885896252554，比30小，把输入a，b改成负数就失效了，所以对于step后面乘的系数，应该找一个和输入相关的值来控制，也就是一个关于输入值的函数。如果在这个点上，输出结果是随着输入值增加而增加，那么step乘以一个正数即可，反之，则需要乘以一个负数才能使输出结果增加！显然这就是函数在某点上的==微分==（前文铺垫的就是他）的定义！</p>
+<p>eg：对于f = f(a, b) ,我们想要更新变量a，b的值，就可以根据下图公式来更新</p>
+<p><img src="https://s2.ax1x.com/2020/03/01/3g4n9x.png" alt="2"></p>
+<p>实际上这就是BP的最基本思想啦~假设f就是神经网络的输出，将f与groundtruth计算误差，让f变大（或变小），使其更接近groundtruth，我们将改变f的变量，而f其实是长这样的，f = f(w,b) . 只不过真正的神经网络更复杂。</p>
+<h4 id="进一步了解BP"><a href="#进一步了解BP" class="headerlink" title="进一步了解BP"></a>进一步了解BP</h4><p>接下来，我们将一步一步地接近最终的神经网络中的BP。</p>
+<p>不废话，直接看图。</p>
+<p><img src="https://s2.ax1x.com/2020/03/01/3g41De.png" alt="3"></p>
+<p>代码实现如下：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">multiply</span><span class="params">(x, y)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> x * y </span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">addition</span><span class="params">(x, y)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> x + y</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">forward</span><span class="params">(a, b, c)</span>:</span></span><br><span class="line">    d = addition(a, b)</span><br><span class="line">    <span class="keyword">return</span> multiply(d, c)</span><br><span class="line"> </span><br><span class="line">print(forward(<span class="number">5</span>, <span class="number">-6</span>, <span class="number">7</span>))</span><br></pre></td></tr></table></figure>
+<p>输出结果为-7，现在开始训练，就是改变输入的a,b,c三个值，使函数f的值变大，那么就按照下图的方式更新。</p>
+<h5 id="更新公式"><a href="#更新公式" class="headerlink" title="更新公式"></a>更新公式</h5><p><img src="https://s2.ax1x.com/2020/03/01/3g4Y4I.png" alt="4"></p>
+<h5 id="链式求导"><a href="#链式求导" class="headerlink" title="链式求导"></a>链式求导</h5><p>现在问题就变成了如何求解f关于a，b，c的微分。<br>我们将f反着往回写，我们将第一个神经元的输出记作d，那么f = d *c , 继续反着推，d = a +b。这样就成了两个函数。如图：</p>
+<p><img src="https://s2.ax1x.com/2020/03/01/3g4NCt.png" alt="5"></p>
+<p>下面开始链式求导，考过数学一二三的人最喜欢这个东西了。</p>
+<p><img src="https://s2.ax1x.com/2020/03/01/3g4agf.png" alt="6"></p>
+<p>继续，==不要停==：</p>
+<p><img src="https://s2.ax1x.com/2020/03/01/3g4BDg.png" alt="7"></p>
+<p>然后最终结果如下：</p>
+<p><img src="https://s2.ax1x.com/2020/03/01/3g4R2V.png" alt="8"></p>
+<h5 id="反向传播代码实现"><a href="#反向传播代码实现" class="headerlink" title="反向传播代码实现"></a>反向传播代码实现</h5><p>代码实现上述过程：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">multiply</span><span class="params">(x, y)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> x * y</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">addition</span><span class="params">(x, y)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> x + y</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">forward</span><span class="params">(a, b, c)</span>:</span></span><br><span class="line">    d = addition(a, b)</span><br><span class="line">    <span class="keyword">return</span> multiply(d, c)</span><br><span class="line">print(forward(<span class="number">5</span>, <span class="number">-6</span>, <span class="number">7</span>))</span><br></pre></td></tr></table></figure>
+<p>输出结果为-7</p>
+<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">def</span> <span class="string">update(a, b, c):</span></span><br><span class="line">    <span class="attr">d</span> = <span class="string">addition(a, b)</span></span><br><span class="line">    <span class="attr">h</span> = <span class="string">0.01</span></span><br><span class="line"> </span><br><span class="line">    <span class="attr">derivative_f_d</span> = <span class="string">c</span></span><br><span class="line">    <span class="attr">derivative_f_c</span> = <span class="string">d</span></span><br><span class="line">    <span class="attr">derivative_d_a</span> = <span class="string">1</span></span><br><span class="line">    <span class="attr">derivative_d_b</span> = <span class="string">1</span></span><br><span class="line"> </span><br><span class="line">    <span class="attr">derivative_f_a</span> = <span class="string">derivative_f_d * derivative_d_a</span></span><br><span class="line">    <span class="attr">derivative_f_b</span> = <span class="string">derivative_f_d * derivative_d_b</span></span><br><span class="line"> </span><br><span class="line">    <span class="attr">a</span> = <span class="string">a + h * derivative_f_a</span></span><br><span class="line">    <span class="attr">b</span> = <span class="string">b + h * derivative_f_b</span></span><br><span class="line">    <span class="attr">c</span> = <span class="string">c + h * derivative_f_c</span></span><br><span class="line"> </span><br><span class="line">    <span class="attr">d</span> = <span class="string">addition(a, b)</span></span><br><span class="line">    <span class="attr">return</span> <span class="string">multiply(d, c)</span></span><br><span class="line"></span><br><span class="line"><span class="meta">print(update(5,</span> <span class="string">-6, 7))</span></span><br></pre></td></tr></table></figure>
+<p>输出结果为-6.0113999999999965<br>可以看到更新之后的输出确实增大了,说明我们现在已经可以实现嵌套神经元的变量参数的更新了。</p>
+<h4 id="总结BP更新本质"><a href="#总结BP更新本质" class="headerlink" title="总结BP更新本质"></a>总结BP更新本质</h4><p>首先，前向传播，从输入开始分析，输入值为a=5,b=-6,c=7，第一个神经元的输出d为-1，然后第二个神经元输出为7，最后结果为-7，这就是前向传播的过程。</p>
+<p>然后，反向传播，从输出开始分析，目标是将输出变大，输出值是由-1*7得到的，现在要增加输出值，显然就是增加-1，减少7。再来计算微分，微分结果就是增加d，减少c。这里d又是由a，b决定的！那么只要增加a和b就行了，运用链式法则求a，b的微分，也能得到相同的结果。</p>
+<p>我们倒着从输出到输入的过程就是反向传播的过程。通过计算微分可以更新变量的值，使得输出朝着我们期待的方向的变化！</p>
+<h4 id="好吃又简单的BP，到这里你就懂啦"><a href="#好吃又简单的BP，到这里你就懂啦" class="headerlink" title="好吃又简单的BP，到这里你就懂啦~"></a>好吃又简单的BP，到这里你就懂啦~</h4>]]></content>
+      <categories>
+        <category>Deep learning</category>
+      </categories>
+      <tags>
+        <tag>BP</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>卷积神经网络(CNN)辅助入门理解</title>
     <url>/jerryzz668.github.io/2020/01/28/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C(CNN)%E8%BE%85%E5%8A%A9%E5%85%A5%E9%97%A8%E7%90%86%E8%A7%A3/</url>
     <content><![CDATA[<p>如果开始看CNN了，相信大家对于神经网络的基础已经有了一些了解了，那么今天我们就来感性的理解下CNN，尽可能少整数学公式，让在座各位兄弟在学习工作之余，嗑个瓜子，吃根冰棍的同时也能看懂CNN，但是在编程过程中，数学公式可是必不可少的嗷～</p>

@@ -6,7 +6,7 @@
   <link href="/jerryzz668.github.io/atom.xml" rel="self"/>
   
   <link href="https://jerryzz668.github.io/"/>
-  <updated>2020-01-28T06:02:51.768Z</updated>
+  <updated>2020-03-01T11:23:29.737Z</updated>
   <id>https://jerryzz668.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>小白也能看懂的BP反向传播</title>
+    <link href="https://jerryzz668.github.io/2020/03/01/%E5%B0%8F%E7%99%BD%E4%B9%9F%E8%83%BD%E7%9C%8B%E6%87%82%E7%9A%84BP%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD/"/>
+    <id>https://jerryzz668.github.io/2020/03/01/%E5%B0%8F%E7%99%BD%E4%B9%9F%E8%83%BD%E7%9C%8B%E6%87%82%E7%9A%84BP%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD/</id>
+    <published>2020-03-01T11:17:59.000Z</published>
+    <updated>2020-03-01T11:23:29.737Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;BP过程中，更新公式长什么样？&quot;&gt;&lt;a href=&quot;#BP过程中，更新公式长什么样？&quot; class=&quot;headerlink&quot; title=&quot;BP过程中，更新公式长什么样？&quot;&gt;&lt;/a&gt;BP过程中，更新公式长什么样？&lt;/h4&gt;&lt;p&gt;众所周知，BP过程中通过权值的不断更新，使得神经网络的输出向groundtruth靠近。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Deep learning" scheme="https://jerryzz668.github.io/categories/Deep-learning/"/>
+    
+    
+      <category term="BP" scheme="https://jerryzz668.github.io/tags/BP/"/>
+    
+  </entry>
   
   <entry>
     <title>卷积神经网络(CNN)辅助入门理解</title>

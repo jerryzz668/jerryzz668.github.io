@@ -46,21 +46,29 @@
   };
 </script>
 
-  <meta name="description" content="Ubuntu16.04默认安装了第三方开源的驱动程序nouveau，安装nvidia显卡驱动首先需要禁用nouveau，不然会碰到冲突的问题，导致无法安装nvidia显卡驱动。">
+  <meta name="description" content="BP过程中，更新公式长什么样？众所周知，BP过程中通过权值的不断更新，使得神经网络的输出向groundtruth靠近。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Ubuntu16.04下安装NVIDIA显卡驱动">
-<meta property="og:url" content="https://jerryzz668.github.io/2020/01/17/Ubuntu16.04%E4%B8%8B%E5%AE%89%E8%A3%85NVIDIA%E6%98%BE%E5%8D%A1%E9%A9%B1%E5%8A%A8/index.html">
+<meta property="og:title" content="小白也能看懂的BP反向传播">
+<meta property="og:url" content="https://jerryzz668.github.io/2020/03/01/%E5%B0%8F%E7%99%BD%E4%B9%9F%E8%83%BD%E7%9C%8B%E6%87%82%E7%9A%84BP%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD/index.html">
 <meta property="og:site_name" content="Stay true to your mission">
-<meta property="og:description" content="Ubuntu16.04默认安装了第三方开源的驱动程序nouveau，安装nvidia显卡驱动首先需要禁用nouveau，不然会碰到冲突的问题，导致无法安装nvidia显卡驱动。">
+<meta property="og:description" content="BP过程中，更新公式长什么样？众所周知，BP过程中通过权值的不断更新，使得神经网络的输出向groundtruth靠近。">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-01-17T15:26:16.000Z">
-<meta property="article:modified_time" content="2020-01-21T05:08:02.925Z">
+<meta property="og:image" content="https://s2.ax1x.com/2020/03/01/3g4ZNR.png">
+<meta property="og:image" content="https://s2.ax1x.com/2020/03/01/3g4n9x.png">
+<meta property="og:image" content="https://s2.ax1x.com/2020/03/01/3g41De.png">
+<meta property="og:image" content="https://s2.ax1x.com/2020/03/01/3g4Y4I.png">
+<meta property="og:image" content="https://s2.ax1x.com/2020/03/01/3g4NCt.png">
+<meta property="og:image" content="https://s2.ax1x.com/2020/03/01/3g4agf.png">
+<meta property="og:image" content="https://s2.ax1x.com/2020/03/01/3g4BDg.png">
+<meta property="og:image" content="https://s2.ax1x.com/2020/03/01/3g4R2V.png">
+<meta property="article:published_time" content="2020-03-01T11:17:59.000Z">
+<meta property="article:modified_time" content="2020-03-01T11:23:29.737Z">
 <meta property="article:author" content="整天梦游的小jerry">
-<meta property="article:tag" content="Ubuntu">
-<meta property="article:tag" content="Nvidia">
+<meta property="article:tag" content="BP">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.ax1x.com/2020/03/01/3g4ZNR.png">
 
-<link rel="canonical" href="https://jerryzz668.github.io/2020/01/17/Ubuntu16.04%E4%B8%8B%E5%AE%89%E8%A3%85NVIDIA%E6%98%BE%E5%8D%A1%E9%A9%B1%E5%8A%A8/">
+<link rel="canonical" href="https://jerryzz668.github.io/2020/03/01/%E5%B0%8F%E7%99%BD%E4%B9%9F%E8%83%BD%E7%9C%8B%E6%87%82%E7%9A%84BP%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD/">
 
 
 <script id="page-configurations">
@@ -72,7 +80,7 @@
   };
 </script>
 
-  <title>Ubuntu16.04下安装NVIDIA显卡驱动 | Stay true to your mission</title>
+  <title>小白也能看懂的BP反向传播 | Stay true to your mission</title>
   
 
 
@@ -191,7 +199,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
-    <link itemprop="mainEntityOfPage" href="https://jerryzz668.github.io/2020/01/17/Ubuntu16.04%E4%B8%8B%E5%AE%89%E8%A3%85NVIDIA%E6%98%BE%E5%8D%A1%E9%A9%B1%E5%8A%A8/">
+    <link itemprop="mainEntityOfPage" href="https://jerryzz668.github.io/2020/03/01/%E5%B0%8F%E7%99%BD%E4%B9%9F%E8%83%BD%E7%9C%8B%E6%87%82%E7%9A%84BP%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/jerryzz668.github.io/images/me.jpg">
@@ -204,7 +212,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Ubuntu16.04下安装NVIDIA显卡驱动
+          小白也能看懂的BP反向传播
         </h1>
 
         <div class="post-meta">
@@ -213,24 +221,18 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
+              
 
-              <time title="Created: 2020-01-17 23:26:16" itemprop="dateCreated datePublished" datetime="2020-01-17T23:26:16+08:00">2020-01-17</time>
+              <time title="Created: 2020-03-01 19:17:59 / Modified: 19:23:29" itemprop="dateCreated datePublished" datetime="2020-03-01T19:17:59+08:00">2020-03-01</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-01-21 13:08:02" itemprop="dateModified" datetime="2020-01-21T13:08:02+08:00">2020-01-21</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/jerryzz668.github.io/categories/system/" itemprop="url" rel="index">
-                    <span itemprop="name">system</span>
+                  <a href="/jerryzz668.github.io/categories/Deep-learning/" itemprop="url" rel="index">
+                    <span itemprop="name">Deep learning</span>
                   </a>
                 </span>
             </span>
@@ -248,7 +250,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>1.5k</span>
+              <span>2k</span>
             </span>
 
         </div>
@@ -260,35 +262,42 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>Ubuntu16.04默认安装了第三方开源的驱动程序nouveau，安装nvidia显卡驱动首先需要禁用nouveau，不然会碰到冲突的问题，导致无法安装nvidia显卡驱动。<a id="more"></a></p>
-<h4 id="第一步-禁用nouveau"><a href="#第一步-禁用nouveau" class="headerlink" title="第一步, 禁用nouveau"></a>第一步, 禁用nouveau</h4><ol>
-<li>编辑文件blacklist.conf <code>sudo vim /etc/modprobe.d/blacklist.conf</code></li>
-<li>若未安装vim, 则<code>sudo apt-get install vim</code>安装</li>
-<li>在文件最后部分插入以下两行内容<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">blacklist nouveau</span><br><span class="line">options nouveau modeset=0</span><br></pre></td></tr></table></figure></li>
-<li>更新系统<code>sudo update-initramfs -u</code></li>
-<li>重启系统（一定要重启）</li>
-<li>验证nouveau是否已禁用<code>lsmod | grep nouveau</code><br>没有信息显示，说明nouveau已被禁用，接下来可以安装nvidia的显卡驱动。</li>
-</ol>
-<hr>
-<h4 id="第二步-在英伟达的官网上查找你自己电脑的显卡型号然后下载相应的驱动。网址：NVIDIA官网"><a href="#第二步-在英伟达的官网上查找你自己电脑的显卡型号然后下载相应的驱动。网址：NVIDIA官网" class="headerlink" title="第二步, 在英伟达的官网上查找你自己电脑的显卡型号然后下载相应的驱动。网址：NVIDIA官网"></a>第二步, 在英伟达的官网上查找你自己电脑的显卡型号然后下载相应的驱动。网址：<a href="http://www.nvidia.cn/page/home.html" target="_blank" rel="noopener">NVIDIA官网</a></h4><p>我下载的版本：NVIDIA-Linux-x86_64-430.50.run（注意不同的版本最后安装执行的具体选项不同）</p>
-<ol>
-<li>下载后的run文件拷贝至home目录下</li>
-<li>在ubuntu下按ctrl+alt+f1进入命令行界面，关闭图形界面，不执行会出错<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo service lightdm stop</span><br></pre></td></tr></table></figure></li>
-<li>然后卸载掉原有驱动(若安装过其他版本或其他方式安装过驱动执行此)<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get remove nvidia-*</span><br></pre></td></tr></table></figure></li>
-<li>给驱动run文件赋予执行权限：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod  a+x NVIDIA-Linux-x86_64-430.50.run</span><br></pre></td></tr></table></figure></li>
-<li>安装：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ./NVIDIA-Linux-x86_64-396.18.run -no-x-check -no-nouveau-check -no-opengl-files</span><br></pre></td></tr></table></figure>
-//只有禁用opengl这样安装才不会出现循环登陆的问题<br>//-no-x-check：安装驱动时关闭X服务<br>//-no-nouveau-check：安装驱动时禁用nouveau<br>//-no-opengl-files：只安装驱动文件，不安装OpenGL文件</li>
-<li>安装过程中的选项：（这是copy别人的，自己的没记住，我也是尝试选择了好多遍才安装好）</li>
-</ol>
-<p>Q:The distribution-provided pre-install script failed! Are you sure you want to continue? 选择 yes 继续。<br>Q:Would you like to register the kernel module souces with DKMS? This will allow DKMS to automatically build a new module, if you install a different kernel later?  选择 No 继续。<br>Q：xxx？ 选择install without signing<br>Q:Nvidia’s 32-bit compatibility libraries? 选择 No 继续。<br>Q:Would you like to run the nvidia-xconfigutility to automatically update your x configuration so that the NVIDIA x driver will be used when you restart x? Any pre-existing x confile will be backed up.  选择 Yes  继续</p>
-<hr>
-<h4 id="第三步"><a href="#第三步" class="headerlink" title="第三步"></a>第三步</h4><ol>
-<li>挂载NVIDIA驱动<code>modprobe nvidia</code></li>
-<li>查看驱动是否安装成功：<code>nvidia-smi</code></li>
-<li>恢复图形界面 <code>sudo service lightdm start</code></li>
-</ol>
-<hr>
-<h3 id="至此大功告成"><a href="#至此大功告成" class="headerlink" title="至此大功告成"></a>至此大功告成</h3>
+        <h4 id="BP过程中，更新公式长什么样？"><a href="#BP过程中，更新公式长什么样？" class="headerlink" title="BP过程中，更新公式长什么样？"></a>BP过程中，更新公式长什么样？</h4><p>众所周知，BP过程中通过权值的不断更新，使得神经网络的输出向groundtruth靠近。</p>
+<a id="more"></a>
+<p>开门见山，直接看图，这部分是为==后面==做铺垫，很简单昂~</p>
+<p><img src="https://s2.ax1x.com/2020/03/01/3g4ZNR.png" alt="1"></p>
+<p>我们随机给输入a，b添加一个随机值，然后用步长step来控制增加速度，看python代码：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">import random</span><br><span class="line"></span><br><span class="line">def multiply(a, b):</span><br><span class="line">    <span class="built_in">return</span> a * b</span><br><span class="line"></span><br><span class="line">def func():</span><br><span class="line">    a = 5</span><br><span class="line">    b = 6</span><br><span class="line">    step = 0.01</span><br><span class="line">    a = a + step * (random.random())</span><br><span class="line">    b = b + step * (random.random())</span><br><span class="line">    <span class="built_in">print</span>(multiply(a, b))</span><br><span class="line"></span><br><span class="line">func()</span><br></pre></td></tr></table></figure>
+<p>运行程序，输出30.023996846498836，比30大，但是如果继续测试，会出现问题，速看如下代码：</p>
+<figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">def <span class="function"><span class="keyword">func</span><span class="params">()</span>:</span></span><br><span class="line">    a = <span class="number">-5</span></span><br><span class="line">    b = <span class="number">-6</span></span><br><span class="line">    <span class="keyword">step</span> = <span class="number">0.01</span></span><br><span class="line">    a = a + <span class="keyword">step</span> * (<span class="built_in">random</span>.<span class="built_in">random</span>())</span><br><span class="line">    b = b + <span class="keyword">step</span> * (<span class="built_in">random</span>.<span class="built_in">random</span>())</span><br><span class="line">    print(multiply(a, b))</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
+<p>运行程序，输出29.982885896252554，比30小，把输入a，b改成负数就失效了，所以对于step后面乘的系数，应该找一个和输入相关的值来控制，也就是一个关于输入值的函数。如果在这个点上，输出结果是随着输入值增加而增加，那么step乘以一个正数即可，反之，则需要乘以一个负数才能使输出结果增加！显然这就是函数在某点上的==微分==（前文铺垫的就是他）的定义！</p>
+<p>eg：对于f = f(a, b) ,我们想要更新变量a，b的值，就可以根据下图公式来更新</p>
+<p><img src="https://s2.ax1x.com/2020/03/01/3g4n9x.png" alt="2"></p>
+<p>实际上这就是BP的最基本思想啦~假设f就是神经网络的输出，将f与groundtruth计算误差，让f变大（或变小），使其更接近groundtruth，我们将改变f的变量，而f其实是长这样的，f = f(w,b) . 只不过真正的神经网络更复杂。</p>
+<h4 id="进一步了解BP"><a href="#进一步了解BP" class="headerlink" title="进一步了解BP"></a>进一步了解BP</h4><p>接下来，我们将一步一步地接近最终的神经网络中的BP。</p>
+<p>不废话，直接看图。</p>
+<p><img src="https://s2.ax1x.com/2020/03/01/3g41De.png" alt="3"></p>
+<p>代码实现如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">multiply</span><span class="params">(x, y)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> x * y </span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">addition</span><span class="params">(x, y)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> x + y</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">forward</span><span class="params">(a, b, c)</span>:</span></span><br><span class="line">    d = addition(a, b)</span><br><span class="line">    <span class="keyword">return</span> multiply(d, c)</span><br><span class="line"> </span><br><span class="line">print(forward(<span class="number">5</span>, <span class="number">-6</span>, <span class="number">7</span>))</span><br></pre></td></tr></table></figure>
+<p>输出结果为-7，现在开始训练，就是改变输入的a,b,c三个值，使函数f的值变大，那么就按照下图的方式更新。</p>
+<h5 id="更新公式"><a href="#更新公式" class="headerlink" title="更新公式"></a>更新公式</h5><p><img src="https://s2.ax1x.com/2020/03/01/3g4Y4I.png" alt="4"></p>
+<h5 id="链式求导"><a href="#链式求导" class="headerlink" title="链式求导"></a>链式求导</h5><p>现在问题就变成了如何求解f关于a，b，c的微分。<br>我们将f反着往回写，我们将第一个神经元的输出记作d，那么f = d *c , 继续反着推，d = a +b。这样就成了两个函数。如图：</p>
+<p><img src="https://s2.ax1x.com/2020/03/01/3g4NCt.png" alt="5"></p>
+<p>下面开始链式求导，考过数学一二三的人最喜欢这个东西了。</p>
+<p><img src="https://s2.ax1x.com/2020/03/01/3g4agf.png" alt="6"></p>
+<p>继续，==不要停==：</p>
+<p><img src="https://s2.ax1x.com/2020/03/01/3g4BDg.png" alt="7"></p>
+<p>然后最终结果如下：</p>
+<p><img src="https://s2.ax1x.com/2020/03/01/3g4R2V.png" alt="8"></p>
+<h5 id="反向传播代码实现"><a href="#反向传播代码实现" class="headerlink" title="反向传播代码实现"></a>反向传播代码实现</h5><p>代码实现上述过程：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">multiply</span><span class="params">(x, y)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> x * y</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">addition</span><span class="params">(x, y)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> x + y</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">forward</span><span class="params">(a, b, c)</span>:</span></span><br><span class="line">    d = addition(a, b)</span><br><span class="line">    <span class="keyword">return</span> multiply(d, c)</span><br><span class="line">print(forward(<span class="number">5</span>, <span class="number">-6</span>, <span class="number">7</span>))</span><br></pre></td></tr></table></figure>
+<p>输出结果为-7</p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">def</span> <span class="string">update(a, b, c):</span></span><br><span class="line">    <span class="attr">d</span> = <span class="string">addition(a, b)</span></span><br><span class="line">    <span class="attr">h</span> = <span class="string">0.01</span></span><br><span class="line"> </span><br><span class="line">    <span class="attr">derivative_f_d</span> = <span class="string">c</span></span><br><span class="line">    <span class="attr">derivative_f_c</span> = <span class="string">d</span></span><br><span class="line">    <span class="attr">derivative_d_a</span> = <span class="string">1</span></span><br><span class="line">    <span class="attr">derivative_d_b</span> = <span class="string">1</span></span><br><span class="line"> </span><br><span class="line">    <span class="attr">derivative_f_a</span> = <span class="string">derivative_f_d * derivative_d_a</span></span><br><span class="line">    <span class="attr">derivative_f_b</span> = <span class="string">derivative_f_d * derivative_d_b</span></span><br><span class="line"> </span><br><span class="line">    <span class="attr">a</span> = <span class="string">a + h * derivative_f_a</span></span><br><span class="line">    <span class="attr">b</span> = <span class="string">b + h * derivative_f_b</span></span><br><span class="line">    <span class="attr">c</span> = <span class="string">c + h * derivative_f_c</span></span><br><span class="line"> </span><br><span class="line">    <span class="attr">d</span> = <span class="string">addition(a, b)</span></span><br><span class="line">    <span class="attr">return</span> <span class="string">multiply(d, c)</span></span><br><span class="line"></span><br><span class="line"><span class="meta">print(update(5,</span> <span class="string">-6, 7))</span></span><br></pre></td></tr></table></figure>
+<p>输出结果为-6.0113999999999965<br>可以看到更新之后的输出确实增大了,说明我们现在已经可以实现嵌套神经元的变量参数的更新了。</p>
+<h4 id="总结BP更新本质"><a href="#总结BP更新本质" class="headerlink" title="总结BP更新本质"></a>总结BP更新本质</h4><p>首先，前向传播，从输入开始分析，输入值为a=5,b=-6,c=7，第一个神经元的输出d为-1，然后第二个神经元输出为7，最后结果为-7，这就是前向传播的过程。</p>
+<p>然后，反向传播，从输出开始分析，目标是将输出变大，输出值是由-1*7得到的，现在要增加输出值，显然就是增加-1，减少7。再来计算微分，微分结果就是增加d，减少c。这里d又是由a，b决定的！那么只要增加a和b就行了，运用链式法则求a，b的微分，也能得到相同的结果。</p>
+<p>我们倒着从输出到输入的过程就是反向传播的过程。通过计算微分可以更新变量的值，使得输出朝着我们期待的方向的变化！</p>
+<h4 id="好吃又简单的BP，到这里你就懂啦"><a href="#好吃又简单的BP，到这里你就懂啦" class="headerlink" title="好吃又简单的BP，到这里你就懂啦~"></a>好吃又简单的BP，到这里你就懂啦~</h4>
     </div>
 
     
@@ -323,7 +332,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>Post link: </strong>
-    <a href="https://jerryzz668.github.io/2020/01/17/Ubuntu16.04%E4%B8%8B%E5%AE%89%E8%A3%85NVIDIA%E6%98%BE%E5%8D%A1%E9%A9%B1%E5%8A%A8/" title="Ubuntu16.04下安装NVIDIA显卡驱动">https://jerryzz668.github.io/2020/01/17/Ubuntu16.04下安装NVIDIA显卡驱动/</a>
+    <a href="https://jerryzz668.github.io/2020/03/01/%E5%B0%8F%E7%99%BD%E4%B9%9F%E8%83%BD%E7%9C%8B%E6%87%82%E7%9A%84BP%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD/" title="小白也能看懂的BP反向传播">https://jerryzz668.github.io/2020/03/01/小白也能看懂的BP反向传播/</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
@@ -343,8 +352,7 @@
       </div>
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/jerryzz668.github.io/tags/Ubuntu/" rel="tag"><i class="fa fa-tag"></i> Ubuntu</a>
-              <a href="/jerryzz668.github.io/tags/Nvidia/" rel="tag"><i class="fa fa-tag"></i> Nvidia</a>
+              <a href="/jerryzz668.github.io/tags/BP/" rel="tag"><i class="fa fa-tag"></i> BP</a>
           </div>
 
         
@@ -353,13 +361,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/jerryzz668.github.io/2019/12/30/%E6%89%8B%E6%8A%8A%E6%89%8B%E6%95%99%E4%BD%A0%E4%BD%BF%E7%94%A8hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%B9%B6%E9%83%A8%E7%BD%B2%E5%88%B0%E8%BF%9C%E7%AB%AF%EF%BC%88Mac%E7%89%88)/" rel="prev" title="手把手教你使用hexo搭建个人博客并部署到远端（Mac版)">
-      <i class="fa fa-chevron-left"></i> 手把手教你使用hexo搭建个人博客并部署到远端（Mac版)
+    <a href="/jerryzz668.github.io/2020/01/28/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C(CNN)%E8%BE%85%E5%8A%A9%E5%85%A5%E9%97%A8%E7%90%86%E8%A7%A3/" rel="prev" title="卷积神经网络(CNN)辅助入门理解">
+      <i class="fa fa-chevron-left"></i> 卷积神经网络(CNN)辅助入门理解
     </a></div>
-      <div class="post-nav-item">
-    <a href="/jerryzz668.github.io/2020/01/21/Ubuntu16.04%E4%B8%8B%E5%AE%89%E8%A3%85cuda%E5%92%8Ccudnn(%E4%BA%B2%E6%B5%8B%E6%9C%89%E6%95%88)/" rel="next" title="Ubuntu16.04下安装cuda和cudnn(亲测有效)">
-      Ubuntu16.04下安装cuda和cudnn(亲测有效) <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -421,7 +426,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#第一步-禁用nouveau"><span class="nav-number">1.</span> <span class="nav-text">第一步, 禁用nouveau</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第二步-在英伟达的官网上查找你自己电脑的显卡型号然后下载相应的驱动。网址：NVIDIA官网"><span class="nav-number">2.</span> <span class="nav-text">第二步, 在英伟达的官网上查找你自己电脑的显卡型号然后下载相应的驱动。网址：NVIDIA官网</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第三步"><span class="nav-number">3.</span> <span class="nav-text">第三步</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#至此大功告成"><span class="nav-number"></span> <span class="nav-text">至此大功告成</span></a></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#BP过程中，更新公式长什么样？"><span class="nav-number">1.</span> <span class="nav-text">BP过程中，更新公式长什么样？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#进一步了解BP"><span class="nav-number">2.</span> <span class="nav-text">进一步了解BP</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#更新公式"><span class="nav-number">2.1.</span> <span class="nav-text">更新公式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#链式求导"><span class="nav-number">2.2.</span> <span class="nav-text">链式求导</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#反向传播代码实现"><span class="nav-number">2.3.</span> <span class="nav-text">反向传播代码实现</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#总结BP更新本质"><span class="nav-number">3.</span> <span class="nav-text">总结BP更新本质</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#好吃又简单的BP，到这里你就懂啦"><span class="nav-number">4.</span> <span class="nav-text">好吃又简单的BP，到这里你就懂啦~</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -620,7 +625,7 @@ NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
       repo: 'blog-comments',
       owner: 'jerryzz668',
       admin: ['jerryzz668'],
-      id: 'ba5500f239b948ead2c9edc45dc4318f',
+      id: '4992ad46115b8806ac03dc7a6c4c7b27',
         language: 'zh-CN',
       distractionFreeMode: true
     });
