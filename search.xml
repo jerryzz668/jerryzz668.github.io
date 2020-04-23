@@ -144,7 +144,7 @@
 <li>在ubuntu下按ctrl+alt+f1进入命令行界面，关闭图形界面，不执行会出错<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo service lightdm stop</span><br></pre></td></tr></table></figure></li>
 <li>然后卸载掉原有驱动(若安装过其他版本或其他方式安装过驱动执行此)<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get remove nvidia-*</span><br></pre></td></tr></table></figure></li>
 <li>给驱动run文件赋予执行权限：<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo chmod  a+x NVIDIA-Linux-x86_64-430.50.run</span><br></pre></td></tr></table></figure></li>
-<li>安装：<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo ./NVIDIA-Linux-x86_64-396.18.run -no-x-check -no-nouveau-check -no-opengl-files</span><br></pre></td></tr></table></figure>
+<li>安装：<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo ./NVIDIA-Linux-x86_64-430.50.run -no-x-check -no-nouveau-check -no-opengl-files</span><br></pre></td></tr></table></figure>
 //只有禁用opengl这样安装才不会出现循环登陆的问题<br>//-no-x-check：安装驱动时关闭X服务<br>//-no-nouveau-check：安装驱动时禁用nouveau<br>//-no-opengl-files：只安装驱动文件，不安装OpenGL文件</li>
 <li>安装过程中的选项：（这是copy别人的，自己的没记住，我也是尝试选择了好多遍才安装好）</li>
 </ol>
