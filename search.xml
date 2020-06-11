@@ -131,6 +131,27 @@
 <p>解决办法：<br>安装如下包：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get install exfat-fuse exfat-utils</span><br></pre></td></tr></table></figure>
 <p>一般运行完上述命令，拔出U盘重新插入，就可以了</p>
+<hr>
+<h3 id="解决Mac上plt画图中文无法显示的问题"><a href="#解决Mac上plt画图中文无法显示的问题" class="headerlink" title="解决Mac上plt画图中文无法显示的问题"></a>解决Mac上plt画图中文无法显示的问题</h3><p>系统：MacOS Catalina 10.15.4，python：3.7.6</p>
+<p>在网上找到了很多，基本都是让下载SimHei字体，然后放到plt的字体库，然后配置，<span style="color:red;">然而。。。没用</span></p>
+<p>搞这么麻烦，为什么不直接找找Mac下到底支持哪些字体不就好了嚒，然后发现Arial Unicode MS，亲测可用，代码如下：<br><code>plt.rcParams[&#39;font.sans-serif&#39;] = [&#39;Arial Unicode MS&#39;]</code></p>
+<p><font size=5 color=Red>更改后永久生效</font></p>
+<ol>
+<li><p>找到字体路径（跟其他教程一样）</p>
+<figure class="highlight lisp"><table><tr><td class="code"><pre><span class="line">import matplotlib</span><br><span class="line">print(<span class="name">matplotlib</span>.matplotlib_fname())</span><br></pre></td></tr></table></figure>
+<p>进入该路径，我的是在：<br><code>/Users/zhangyan/opt/anaconda3/envs/python37/lib/python3.7/site-packages/matplotlib/mpl-data/matplotlibrc</code></p>
+</li>
+<li><p>编辑文件matplotlibrc</p>
+</li>
+</ol>
+<p>可直接在文件最下面加上三行：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">font.family:</span> <span class="string">sans-serif</span></span><br><span class="line"><span class="attr">font.sans-serif:</span> <span class="string">Arial</span> <span class="string">Unicode</span> <span class="string">MS,</span> <span class="string">Bitstream</span> <span class="string">Vera</span> <span class="string">Sans,</span> <span class="string">Lucida</span> <span class="string">Grande,</span> <span class="string">Verdana,</span> <span class="string">Geneva,</span> <span class="string">Lucid,</span> <span class="string">Arial,</span> <span class="string">Helvetica,</span> <span class="string">Avant</span> <span class="string">Garde,</span> <span class="string">sans-serif</span></span><br><span class="line"><span class="attr">axes.unicode_minus:</span> <span class="literal">False</span></span><br></pre></td></tr></table></figure>
+<p>然后把~/.matplotlib目录下多两个文件删掉（缓存文件放心删）：</p>
+<figure class="highlight arcade"><table><tr><td class="code"><pre><span class="line">rm -rf ~<span class="regexp">/.matplotlib/</span>*</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>重启python，即可解决中文及负号无法正常显示多问题</li>
+</ol>
 ]]></content>
       <categories>
         <category>technology</category>
